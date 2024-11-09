@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 using namespace std;
 
 // Creat function to simulate city data over time
@@ -13,19 +14,19 @@ using namespace std;
 
 //creat function to print 
 void display(const map<string, array<list<string>, 3>>& cities) {
-    for (const auto& : cities) {
+    for (const auto& city: cities) {
         cout << "City" << city.first << ":" << endl;
 
         cout << "   Resident:" << endl;
-        for (const auto&  resident: cities.second[0]) {
+        for (const auto&  resident: city.second[0]) {
             cout << "       " << resident << endl;
         }
         cout << "   Animal:" << endl;
-        for (const auto&  animal: cities.second[1]) {
+        for (const auto&  animal: city.second[1]) {
             cout << "       " << animal << endl;
         }
         cout << "   Facility:" << endl;
-        for (const auto&  facility: cities.second[2]) {
+        for (const auto&  facility: city.second[2]) {
             cout << "       " << facility << endl;
         }
     }
@@ -38,9 +39,7 @@ int main() {
     map<string, array<list<string>, 3>> cities;
 
     // Set up three array of string to store random resident, facility, animal names
-    vector<string> residentn;
-    vector<string> facilityn;
-    vector<string> animaln;
+    vector<string> residentn, facilityn, animaln;
     // Open each file and read it into array
     // Close the file
     ifstream re("resident.txt");
@@ -78,23 +77,25 @@ int main() {
 
     // Random insert 10residents 5facilities 10animals into map
     for ( int i = 0; i < 10; i++) {
-        cities[A][0].push_back(residentn[rand() % 25]);
-        cities[B][0].push_back(residentn[rand() % 25]);
-        cities[C][0].push_back(residentn[rand() % 25]);
+        cities["A"][0].push_back(residentn[rand() % 25]);
+        cities["B"][0].push_back(residentn[rand() % 25]);
+        cities["C"][0].push_back(residentn[rand() % 25]);
     }
-    for ( int O = 0; O < 10; O++) {
-        cities[A][1].push_back(facilityn[rand() % 25]);
-        cities[B][1].push_back(facilityn[rand() % 25]);
-        cities[C][1].push_back(facilityn[rand() % 25]);
+    for ( int O = 0; O < 5; O++) {
+        cities["A"][1].push_back(facilityn[rand() % 25]);
+        cities["B"][1].push_back(facilityn[rand() % 25]);
+        cities["C"][1].push_back(facilityn[rand() % 25]);
     }
     for ( int P = 0; P < 10; P++) {
-        cities[A][2].push_back(animaln[rand() % 20]);
-        cities[B][2].push_back(animaln[rand() % 20]);
-        cities[C][2].push_back(animaln[rand() % 20]);
+        cities["A"][2].push_back(animaln[rand() % 20]);
+        cities["B"][2].push_back(animaln[rand() % 20]);
+        cities["C"][2].push_back(animaln[rand() % 20]);
     }
 
     // Display the initial information
     display(cities);
+
+
     // Start a time-based simulation for city growth and changes
         // Do 25 time period(25 years)
             // Go through each city in the map
