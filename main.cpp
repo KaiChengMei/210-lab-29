@@ -1,23 +1,21 @@
 // the header files we need map....
-// #include <iostream>
-// #include <map>
-// #include <array>
-// #include <list>
-// #include <fstream>
-// #include <cstdlib>
-// #include <ctime>
+#include <iostream>
+#include <map>
+#include <array>
+#include <list>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 // Creat function to simulate city data over time
     // Parameters: map of cities, number of intervals
 
 // int main function
     // Set up a map to store city data, each city have array of lists for residents, facilities, and animals
-
-    // Read data from file and populate map
-        // For each line, extract city, resident, facility, and animal data
-        // Random insert 10residents 5facilities 10animals
+    // Set up three array of string to store random resident, facility, animal names
 
     // Close the file
+    // Random insert 10residents 5facilities 10animals into map
 
     // Display the initial information
 
