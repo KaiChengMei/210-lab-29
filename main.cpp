@@ -6,15 +6,32 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
+using namespace std;
 
 // Creat function to simulate city data over time
     // Parameters: map of cities, number of intervals
 
 // int main function
     // Set up a map to store city data, each city have array of lists for residents, facilities, and animals
-    // Set up three array of string to store random resident, facility, animal names
+    srand(static_cast<unsigned int>(time(0)));
+    map<string, array<list<string>, 3>> cities;
 
+    // Set up three array of string to store random resident, facility, animal names
+    vector<string> residentn;
+    vector<string> facilityn;
+    vector<string> animaln;
+    // Open each file and read it into array
     // Close the file
+    ifstream re("resident.txt");
+    if (!re) {
+        cout << "Error open resident.txt" << endl;
+        return 1;
+    }
+    string name;
+    while (re>>name) {
+        residentn.push_back(name);
+    }
+    re.close();
     // Random insert 10residents 5facilities 10animals into map
 
     // Display the initial information
