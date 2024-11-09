@@ -27,12 +27,35 @@ using namespace std;
         cout << "Error open resident.txt" << endl;
         return 1;
     }
-    string name;
-    while (re>>name) {
-        residentn.push_back(name);
+    string name1;
+    while (re>>name1) {
+        residentn.push_back(name1);
     }
     re.close();
+
+    ifstream fa("facility.txt");
+    if (!fa) {
+        cout << "Error open facility.txt" << endl;
+        return 1;
+    }
+    string name2;
+    while (fa>>name2) {
+        facilityn.push_back(name2);
+    }
+    fa.close();
+
+    ifstream an("animal.txt");
+    if (!an) {
+        cout << "Error open animal.txt" << endl;
+        return 1;
+    }
+    string name3;
+    while (an>>name3) {
+        animaln.push_back(name3);
+    }
+    an.close();
     // Random insert 10residents 5facilities 10animals into map
+    
 
     // Display the initial information
 
