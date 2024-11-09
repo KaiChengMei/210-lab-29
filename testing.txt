@@ -1,3 +1,8 @@
+To test the function of simulate city data over time
+See the change in the simulate function return to the origin map
+
+
+
 // the header files we need map....
 #include <iostream>
 #include <map>
@@ -96,37 +101,35 @@ int main() {
     display(cities);
 
 
-    // Start a time-based simulation for city growth and changes
-        // Do 25 time period(25 years)
-            // Go through each city in the map
-                // For each city, apply changes based on the event:
-                    // little change:
-                    // random add people or delete (if radom % 100 : <60 +1 people >60 -1 people)
-                    // random add facility or delete (if radom % 100 : <40 +1 facility >40 -1 facility)
-                    // random add animal or delete (if radom % 100 : <50 +1 animal >50 -1 animal)
-                    
-                    // Call function simulate(what is in function)
-                        // If "Economic Boom" (20%)
-                            // Add new resident to the resident list
-                            // Add new facilities to the facility list
-                            // Reduce animals in the animal list
 
-                        // If "Economic Depression" (10%)
-                            // Remove residents from the resident list
-                            // Remove  facilities from the facility list
-                            // Add animals to the animal list
+    TESTING START !!!!!!
 
-                        // If "Government Build Factory" (15%)
-                            // Remove residents from the resident list
-                            // Remove facilities in the facility list
-                            // Reduce animals in the animal list
+    deleteF(cities);
+    // check if it really work
+    cout << "delete city"
+    display(cities)
 
-                    // Print the update ove the time,  "Added {number} residents to {city}" or "Closed {facility} in {city}"
-
-        // Every 1 year, print the new information of three city
-
-    // End of main function
+    addF(cities, residentn, facilityn, animaln);
+    // check if it really work
+    cout << "add city"
+    display(cities)
 }
 
-// void simulate(const map<string, array<list<string>, 3>>& cities) 
-// 
+void addF(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln) {
+    for (auto& city : cities) {
+        city[0].push_back(residentn[rand() % 25]);
+        city[1].push_back(facilityNames[rand() % 25]);
+        city[2].push_back(animaln[rand() % 20]);
+    }
+}
+
+void deleteF(const map<string, array<list<string>, 3>>& cities) {
+    for (auto& city : cities) {
+        city.second[0].pop_front();
+        city.second[1].pop_front();
+        city.second[2].pop_front();
+    }
+}
+
+
+ 

@@ -1,0 +1,20 @@
+Dog
+Cow
+Cat
+Horse
+Panther
+Crocodile
+Fish
+Orangutan
+Tortoise
+Beagle
+Elephant
+Gorilla
+Kangaroo
+Rabbit
+Chimpanzee
+Zebra
+Eagle
+Wolf
+Goat
+Polar bear	
