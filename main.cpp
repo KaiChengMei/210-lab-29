@@ -100,7 +100,7 @@ int main() {
 
     // Start a time-based simulation for city growth and changes
         // Do 25 time period(25 years)
-        for (int i = 1; i < 25; i++) {
+        for (int i = 1; i <= 25; i++) {
             cout << "----------------------------------Year" << i << "--------------------------------" << endl;
             // Call function simulate(what is in function)
             simulate(cities, residentn, facilityn, animaln);
@@ -138,8 +138,10 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             cout  << "Facility built   " ;
         }
         else {
-            city.second[1].pop_front();
-            cout  << "Facility closed  " ;
+            if (!city.second[1].empty()) { 
+                city.second[1].pop_front();
+                cout  << "Facility closed  " ;
+            }
         }
 
         // random add animal or delete (if radom % 100 : <50 +1 animal >50 -1 animal)
@@ -148,8 +150,10 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             cout  << "New animal found " ;
         }
         else {
-            city.second[2].pop_front();
-            cout << "Animal extinct   " ;
+            if (!city.second[2].empty()) { 
+                city.second[2].pop_front();
+                cout << "Animal extinct   " ;
+            }
         }
         
         random = rand() % 100;
@@ -166,7 +170,9 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             }
             // Reduce animals in the animal list
             for ( int c = 0; c < 5; c++) {
-                city.second[2].pop_front();
+                if (!city.second[2].empty()) { 
+                    city.second[2].pop_front();
+                }
             }
         }
 
@@ -176,11 +182,15 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             cout << "Economic Depression!!!" ;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
-                city.second[0].pop_front();
+                if (!city.second[0].empty()) { 
+                    city.second[0].pop_front();
+                }
             }
             // Remove  facilities from the facility list
             for ( int b = 0; b < 5; b++) {
-                city.second[1].pop_front();
+                if (!city.second[1].empty()) { 
+                    city.second[1].pop_front();
+                }
             }
             // Add animals to the animal list
             for ( int c = 0; c < 5; c++) {
@@ -194,15 +204,21 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             cout << "Government Build Factory!!!" ;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
-                city.second[0].pop_front();
+                if (!city.second[0].empty()) { 
+                    city.second[0].pop_front();
+                }
             }
             // Remove facilities in the facility list
             for ( int b = 0; b < 5; b++) {
-                city.second[1].pop_front();
+                if (!city.second[1].empty()) { 
+                    city.second[1].pop_front();
+                }
             }
             // Reduce animals in the animal list
             for ( int c = 0; c < 5; c++) {
-                city.second[2].pop_front();
+                if (!city.second[2].empty()) { 
+                    city.second[2].pop_front();
+                }
             }
         }
         cout << endl;

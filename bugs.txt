@@ -44,3 +44,11 @@ wrong order
 
 creat random at the beginning of simulta function
 and get new random number so it wouldn't happan three events at the same time
+
+only print 24 years so I change to
+        // Do 25 time period(25 years)
+                for (int i = 1; i <= 25; i++)
+
+Change the way I print it make reader to watch it more clear
+
+add    // if (!city.second[0].empty()) to prevent code stop automatically
