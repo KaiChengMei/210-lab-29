@@ -3,3 +3,23 @@ wrong loop statement (use ;)
         101 |         for (int i = 1, i < 25, i++) {
             |                          ^~
             |                          ;
+
+when calling simulate fuction, should define types of resident facility and animal (string) ,
+using const vector<string>& residentn, instead of residentn.
+            main.cpp:13:66: error: 'residentn' has not been declared
+        13 | void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln);
+            |                                                                  ^~~~~~~~~
+        main.cpp:13:77: error: 'facilityn' has not been declared
+        13 | void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln);
+            |                                                                             ^~~~~~~~~
+        main.cpp:13:88: error: 'animaln' has not been declared
+        13 | void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln);
+            |                             
+
+pop_front should add () after
+        main.cpp:164:32: error: statement cannot resolve address of overloaded function
+        164 |                 city.second[2].pop_front;
+
+when you want to simulate the the map, the map should be changeble, delete the const infront
+so change const map<string, array<list<string> to map<string, array<list<string>,
+

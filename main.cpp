@@ -10,7 +10,7 @@
 using namespace std;
 
 // Creat function to simulate city data over time
-void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln);
+void simulate( map<string, array<list<string>, 3>>& cities, const vector<string>& residentn, const vector<string>& facilityn, const vector<string>& animaln);
     // Parameters: map of cities, number of intervals
 
 //creat function to print 
@@ -111,7 +111,7 @@ int main() {
 }
 
 // void simulate(const map<string, array<list<string>, 3>>& cities) 
-void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln) {
+void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>& residentn, const vector<string>& facilityn, const vector<string>& animaln) {
 
     // Go through each city in the map
     for (auto& city : cities) {
@@ -161,7 +161,7 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
             }
             // Reduce animals in the animal list
             for ( int c = 0; c < 5; c++) {
-                city.second[2].pop_front;
+                city.second[2].pop_front();
             }
         }
 
@@ -170,11 +170,11 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
             cout << "Economic Depression!!!" << city.first << endl;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
-                city.second[0].pop_front;
+                city.second[0].pop_front();
             }
             // Remove  facilities from the facility list
             for ( int b = 0; b < 5; b++) {
-                city.second[1].pop_front;
+                city.second[1].pop_front();
             }
             // Add animals to the animal list
             for ( int c = 0; c < 5; c++) {
@@ -187,15 +187,15 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
             cout << "Government Build Factory!!!" << city.first << endl;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
-                city.second[0].pop_front;
+                city.second[0].pop_front();
             }
             // Remove facilities in the facility list
             for ( int b = 0; b < 5; b++) {
-                city.second[1].pop_front;
+                city.second[1].pop_front();
             }
             // Reduce animals in the animal list
             for ( int c = 0; c < 5; c++) {
-                city.second[2].pop_front;
+                city.second[2].pop_front();
             }
         }
     }
