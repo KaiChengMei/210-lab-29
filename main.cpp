@@ -18,18 +18,19 @@ void display(const map<string, array<list<string>, 3>>& cities) {
     for (const auto& city: cities) {
         cout << "City" << city.first << ":" << endl;
 
-        cout << "   Resident:" << endl;
+        cout << "   Resident:" << endl << "        ";
         for (const auto&  resident: city.second[0]) {
-            cout << "       " << resident << endl;
+            cout << resident << " ";
         }
-        cout << "   Animal:" << endl;
-        for (const auto&  animal: city.second[1]) {
-            cout << "       " << animal << endl;
+        cout << endl << "   Facility:" << endl << "        ";
+        for (const auto&  facility: city.second[1]) {
+            cout << facility << " ";
         }
-        cout << "   Facility:" << endl;
-        for (const auto&  facility: city.second[2]) {
-            cout << "       " << facility << endl;
+        cout << endl << "   Animal:" << endl << "        ";
+        for (const auto&  animal: city.second[2]) {
+            cout << animal << " ";
         }
+        cout << endl;
     }
 }
 
@@ -150,7 +151,7 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
         random = rand() % 100;
         // If "Economic Boom" (20%)
         if (random < 20) {
-            cout << "Economic Boom!!!" << city.first << endl;
+            cout << "Economic Boom!!! :" << city.first << endl;
             // Add new resident to the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].push_back(residentn[rand() % 25]);
@@ -167,7 +168,7 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
 
         // If "Economic Depression" (10%)
         if (random < 10) {
-            cout << "Economic Depression!!!" << city.first << endl;
+            cout << "Economic Depression!!! :" << city.first << endl;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].pop_front();
@@ -184,7 +185,7 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
 
         // If "Government Build Factory" (15%)
         if (random < 15) {
-            cout << "Government Build Factory!!!" << city.first << endl;
+            cout << "Government Build Factory!!! :" << city.first << endl;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].pop_front();

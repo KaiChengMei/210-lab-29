@@ -23,3 +23,21 @@ pop_front should add () after
 when you want to simulate the the map, the map should be changeble, delete the const infront
 so change const map<string, array<list<string> to map<string, array<list<string>,
 
+change the ouput format because old one is so mess 
+
+wrong order
+    old  
+        for (const auto&  animal: city.second[1]) {
+                cout << animal << " ";
+            }
+            cout << endl << "   Facility:" << endl;
+            for (const auto&  facility: city.second[2]) {
+                cout << facility << " ";
+            }
+    new 
+        for (const auto&  facility: city.second[1]) {
+                cout << facility << " ";
+            }
+            for (const auto&  animal: city.second[2]) {
+                cout << animal << " ";
+            }
