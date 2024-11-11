@@ -145,21 +145,47 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
             cout << "Animal extinct" << endl;
         }
         
-            // If "Economic Boom" (20%)
-                // Add new resident to the resident list
-                // Add new facilities to the facility list
-                // Reduce animals in the animal list
+        int random;
+        random = rand() % 100;
+        // If "Economic Boom" (20%)
+        if (random < 20) {
+            cout << "Economic Boom!!!" << city.first << endl;
+            // Add new resident to the resident list
+            for ( int a = 0; a < 10; a++) {
+                city.second[0].push_back(residentn[rand() % 25]);
+            }
+            // Add new facilities to the facility list
+            for ( int b = 0; b < 5; b++) {
+                city.second[1].push_back(facilityn[rand() % 25]);
+            }
+            // Reduce animals in the animal list
+            for ( int c = 0; c < 5; c++) {
+                city.second[2].pop_front;
+            }
+        }
 
-            // If "Economic Depression" (10%)
-                // Remove residents from the resident list
-                // Remove  facilities from the facility list
-                // Add animals to the animal list
+        // If "Economic Depression" (10%)
+        if (random < 20) {
+            cout << "Economic Boom!!!" << city.first << endl;
+            // Remove residents from the resident list
+            for ( int a = 0; a < 10; a++) {
+                city.second[0].pop_front;
+            }
+            // Remove  facilities from the facility list
+            for ( int b = 0; b < 5; b++) {
+                city.second[1].pop_front;
+            }
+            // Add animals to the animal list
+            for ( int c = 0; c < 5; c++) {
+                city.second[2].push_back(animaln[rand() % 20]);
+            }
+        }
 
-            // If "Government Build Factory" (15%)
-                // Remove residents from the resident list
-                // Remove facilities in the facility list
-                // Reduce animals in the animal list
-
+        // If "Government Build Factory" (15%)
+        
+            // Remove residents from the resident list
+            // Remove facilities in the facility list
+            // Reduce animals in the animal list
         // Print the update ove the time,  "Added {number} residents to {city}" or "Closed {facility} in {city}"
     }
 }
