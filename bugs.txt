@@ -1,0 +1,5 @@
+wrong loop statement (use ;)
+        main.cpp:101:26: error: expected ';' before '<' token
+        101 |         for (int i = 1, i < 25, i++) {
+            |                          ^~
+            |                          ;

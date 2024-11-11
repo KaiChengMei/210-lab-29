@@ -10,6 +10,7 @@
 using namespace std;
 
 // Creat function to simulate city data over time
+void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln);
     // Parameters: map of cities, number of intervals
 
 //creat function to print 
@@ -98,13 +99,13 @@ int main() {
 
     // Start a time-based simulation for city growth and changes
         // Do 25 time period(25 years)
-        for (int i = 1, i < 25, i++) {
-            cout << "------Year: " << year << endl;
+        for (int i = 1; i < 25; i++) {
+            cout << "------Year: " << i << endl;
             // Call function simulate(what is in function)
             simulate(cities, residentn, facilityn, animaln);
-            display;
-            
+            display(cities);
         // Every 1 year, print the new information of three city
+        }
 
     // End of main function
 }
@@ -165,8 +166,8 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
         }
 
         // If "Economic Depression" (10%)
-        if (random < 20) {
-            cout << "Economic Boom!!!" << city.first << endl;
+        if (random < 10) {
+            cout << "Economic Depression!!!" << city.first << endl;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].pop_front;
@@ -182,10 +183,20 @@ void simulate(const map<string, array<list<string>, 3>>& cities, residentn, faci
         }
 
         // If "Government Build Factory" (15%)
-        
+        if (random < 15) {
+            cout << "Government Build Factory!!!" << city.first << endl;
             // Remove residents from the resident list
+            for ( int a = 0; a < 10; a++) {
+                city.second[0].pop_front;
+            }
             // Remove facilities in the facility list
+            for ( int b = 0; b < 5; b++) {
+                city.second[1].pop_front;
+            }
             // Reduce animals in the animal list
-        // Print the update ove the time,  "Added {number} residents to {city}" or "Closed {facility} in {city}"
+            for ( int c = 0; c < 5; c++) {
+                city.second[2].pop_front;
+            }
+        }
     }
 }
