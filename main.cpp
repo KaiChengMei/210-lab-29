@@ -100,7 +100,8 @@ int main() {
         // Do 25 time period(25 years)
         for (int i = 1, i < 25, i++) {
             cout << "------Year: " << year << endl;
-            simulate(cities);
+            // Call function simulate(what is in function)
+            simulate(cities, residentn, facilityn, animaln);
             display;
             
         // Every 1 year, print the new information of three city
@@ -109,27 +110,56 @@ int main() {
 }
 
 // void simulate(const map<string, array<list<string>, 3>>& cities) 
+void simulate(const map<string, array<list<string>, 3>>& cities, residentn, facilityn, animaln) {
+
     // Go through each city in the map
-            // For each city, apply changes based on the event:
-                // little change:
-                // random add people or delete (if radom % 100 : <60 +1 people >60 -1 people)
-                // random add facility or delete (if radom % 100 : <40 +1 facility >40 -1 facility)
-                // random add animal or delete (if radom % 100 : <50 +1 animal >50 -1 animal)
-                
-                // Call function simulate(what is in function)
-                    // If "Economic Boom" (20%)
-                        // Add new resident to the resident list
-                        // Add new facilities to the facility list
-                        // Reduce animals in the animal list
+    for (auto& city : cities) {
+        // little change:
+        // random add people or delete (if radom % 100 : <60 +1 people >60 -1 people)
+        if (rand() % 100 < 60) {
+            city.second[0].push_back(residentn[rand() % 25]);
+            cout << "Resident moved in" << endl;
+        }
+        else {
+            city.second[0].pop_front();
+            cout << "Resident moved out" << endl;
+        }
 
-                    // If "Economic Depression" (10%)
-                        // Remove residents from the resident list
-                        // Remove  facilities from the facility list
-                        // Add animals to the animal list
+        // random add facility or delete (if radom % 100 : <40 +1 facility >40 -1 facility)
+        if (rand() % 100 < 40) {
+            city.second[1].push_back(facilityn[rand() % 25]);
+            cout << "Facility built" << endl;
+        }
+        else {
+            city.second[1].pop_front();
+            cout << "Facility closed" << endl;
+        }
 
-                    // If "Government Build Factory" (15%)
-                        // Remove residents from the resident list
-                        // Remove facilities in the facility list
-                        // Reduce animals in the animal list
+        // random add animal or delete (if radom % 100 : <50 +1 animal >50 -1 animal)
+        if (rand() % 100 < 50) {
+            city.second[1].push_back(animaln[rand() % 20]);
+            cout << "New animal found" << endl;
+        }
+        else {
+            city.second[1].pop_front();
+            cout << "Animal extinct" << endl;
+        }
+        
+            // If "Economic Boom" (20%)
+                // Add new resident to the resident list
+                // Add new facilities to the facility list
+                // Reduce animals in the animal list
 
-                // Print the update ove the time,  "Added {number} residents to {city}" or "Closed {facility} in {city}"
+            // If "Economic Depression" (10%)
+                // Remove residents from the resident list
+                // Remove  facilities from the facility list
+                // Add animals to the animal list
+
+            // If "Government Build Factory" (15%)
+                // Remove residents from the resident list
+                // Remove facilities in the facility list
+                // Reduce animals in the animal list
+
+        // Print the update ove the time,  "Added {number} residents to {city}" or "Closed {facility} in {city}"
+    }
+}
