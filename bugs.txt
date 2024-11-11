@@ -41,3 +41,6 @@ wrong order
             for (const auto&  animal: city.second[2]) {
                 cout << animal << " ";
             }
+
+creat random at the beginning of simulta function
+and get new random number so it wouldn't happan three events at the same time

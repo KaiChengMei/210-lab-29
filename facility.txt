@@ -1,25 +1,25 @@
 Tasty Pot
 Costco
-Oyama BBQ
-City sport
+OyamaBBQ
+Citysport
 Concord Park
 Target
-Safeway Fuel Station
-Pleasant Hill park
-24 hours fitness
-Diablo Vally College
-Pleasant Hill Shopping Center
+SafewayFuelStation
+PleasantHillpark
+24hoursfitness
+DiabloVallyCollege
+PleasantHillShoppingCenter
 Banju
 GRAND GAS
-Hidden Valley Park
-Pleasant Hill Library
-Concord Library 
-Spring Lake Little Library
-Holiday Highlands Park
-Martinez Library
-Frank Salﬁngere Park
+HiddenValleyPark
+PleasantHillLibrary
+ConcordLibrary 
+SpringLake
+Highlands Park
+MartinezLibrary
+FrankSalﬁngerePark
 Safeway
-The Veranda
-Lindsay Wildlife Experience
+Veranda
+LindsayWildlifeExperience
 Starbucks
-Cheesecake factory
+Cheesecakefactory

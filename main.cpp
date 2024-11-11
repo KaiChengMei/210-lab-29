@@ -101,7 +101,7 @@ int main() {
     // Start a time-based simulation for city growth and changes
         // Do 25 time period(25 years)
         for (int i = 1; i < 25; i++) {
-            cout << "------Year: " << i << endl;
+            cout << "----------------------------------Year" << i << "--------------------------------" << endl;
             // Call function simulate(what is in function)
             simulate(cities, residentn, facilityn, animaln);
             display(cities);
@@ -113,45 +113,49 @@ int main() {
 
 // void simulate(const map<string, array<list<string>, 3>>& cities) 
 void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>& residentn, const vector<string>& facilityn, const vector<string>& animaln) {
+    int random;
 
     // Go through each city in the map
     for (auto& city : cities) {
         // little change:
+        cout << "Event of City " << city.first << endl;
+
         // random add people or delete (if radom % 100 : <60 +1 people >60 -1 people)
         if (rand() % 100 < 60) {
             city.second[0].push_back(residentn[rand() % 25]);
-            cout << "Resident moved in" << endl;
+            cout << "Resident moved in    " ;
         }
         else {
-            city.second[0].pop_front();
-            cout << "Resident moved out" << endl;
+            if (!city.second[0].empty()) { 
+                city.second[0].pop_front(); 
+                cout  << "Resident moved out   " ;
+            }
         }
 
         // random add facility or delete (if radom % 100 : <40 +1 facility >40 -1 facility)
         if (rand() % 100 < 40) {
             city.second[1].push_back(facilityn[rand() % 25]);
-            cout << "Facility built" << endl;
+            cout  << "Facility built   " ;
         }
         else {
             city.second[1].pop_front();
-            cout << "Facility closed" << endl;
+            cout  << "Facility closed  " ;
         }
 
         // random add animal or delete (if radom % 100 : <50 +1 animal >50 -1 animal)
         if (rand() % 100 < 50) {
-            city.second[1].push_back(animaln[rand() % 20]);
-            cout << "New animal found" << endl;
+            city.second[2].push_back(animaln[rand() % 20]);
+            cout  << "New animal found " ;
         }
         else {
-            city.second[1].pop_front();
-            cout << "Animal extinct" << endl;
+            city.second[2].pop_front();
+            cout << "Animal extinct   " ;
         }
         
-        int random;
         random = rand() % 100;
-        // If "Economic Boom" (20%)
-        if (random < 20) {
-            cout << "Economic Boom!!! :" << city.first << endl;
+        // If "Economic Boom" (30%)
+        if (random < 30) {
+            cout << "Economic Boom!!!" ;
             // Add new resident to the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].push_back(residentn[rand() % 25]);
@@ -166,9 +170,10 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             }
         }
 
+        random = rand() % 100;
         // If "Economic Depression" (10%)
         if (random < 10) {
-            cout << "Economic Depression!!! :" << city.first << endl;
+            cout << "Economic Depression!!!" ;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].pop_front();
@@ -183,9 +188,10 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
             }
         }
 
-        // If "Government Build Factory" (15%)
-        if (random < 15) {
-            cout << "Government Build Factory!!! :" << city.first << endl;
+        random = rand() % 100;
+        // If "Government Build Factory" (10%)
+        if (random < 10) {
+            cout << "Government Build Factory!!!" ;
             // Remove residents from the resident list
             for ( int a = 0; a < 10; a++) {
                 city.second[0].pop_front();
@@ -199,5 +205,6 @@ void simulate(map<string, array<list<string>, 3>>& cities, const vector<string>&
                 city.second[2].pop_front();
             }
         }
+        cout << endl;
     }
 }
